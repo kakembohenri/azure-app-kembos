@@ -5,6 +5,13 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>azure_app_kembos</RootNamespace>
+    <ApplicationInsightsResourceId>/subscriptions/cc59eaf2-8561-491f-9c72-6e4b8c351981/resourceGroups/azure-course/providers/microsoft.insights/components/azure-app-kembos</ApplicationInsightsResourceId>
+    <UserSecretsId>648c6f08-efec-47a8-b103-c06812fb2cc8</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.13.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0" />
+  </ItemGroup>
 
 </Project>
