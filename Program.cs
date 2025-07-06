@@ -1,4 +1,6 @@
 using Azure.Identity;
+using azure_app_kembos.Data;
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +9,10 @@ builder.Services.Configure<Microsoft.ApplicationInsights.Extensibility.Telemetry
 {
 config.SetAzureTokenCredential(new DefaultAzureCredential());
 });
+
+// Configure Entity Framework Core with Azure SQL Database
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddApplicationInsightsTelemetry(new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions
 {
